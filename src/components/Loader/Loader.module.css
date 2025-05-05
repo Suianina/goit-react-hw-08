@@ -1,0 +1,33 @@
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 30px 100px;
+  }
+  
+  .loader::before,
+  .loader::after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 10px 2px #3d3d3d inset;
+  }
+  
+  .loader::after {
+    box-shadow: 0 2px 0 violet inset;
+    animation: rotate 2s linear infinite;
+  }
+  
+  .text {
+    font-size: 12px;
+    color: rgb(213, 67, 213);
+  }
+  
+  @keyframes rotate {
+    0% {  transform: rotate(0)}
+    100% { transform: rotate(360deg)}
+  }
