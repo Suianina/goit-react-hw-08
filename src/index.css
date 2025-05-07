@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 50px;
+  margin: 0;
   min-width: 320px;
 }
 
@@ -28,6 +28,8 @@ ol {
 
 a {
   text-decoration: none;
+  color: #00a7ee; 
+  font-weight: bold;
 }
 
 button {
@@ -38,4 +40,73 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.pages {
+  margin: 50px;
+}
+.title {
+  margin-bottom: 30px;
+  color: rgb(130, 191, 238);
+  font-size: 50px;
+  text-align: center;
+}
+.greet {
+  text-align: center;
+  margin-top: 50px; 
+  font-size: 3rem; 
+  color: #003366; 
+  font-family: 'Georgia', serif; 
+}
+
+.contact {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  transform: scale(0.5);
+  animation: grow 3s forwards;
+
+}
+
+.contact path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes grow {
+  to {
+    transform: scale(1);
+  }
+}
+
+.react {
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.phonebook {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 26px;
+  color: rgb(130, 177, 238);
+  margin: 30px;
 }

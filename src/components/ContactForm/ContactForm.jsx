@@ -2,11 +2,12 @@ import css from './ContactForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
-  const nameFieldId = 'name-field';
-  const numberFieldId = 'number-field';
+  const nameField = 'name-field';
+  const numberField = 'number-field';
   const dispatch = useDispatch();
 
   const ContactsSchema = Yup.object().shape({
@@ -18,7 +19,13 @@ const ContactForm = () => {
     dispatch(addContact({
       name: values.name,
       number: values.number,
-    }));
+    }))
+    .unwrap()
+    .then(() => {
+      toast.success('Contact added successesfully', {
+        duration: 3000,
+    });
+    });
     actions.resetForm();
   };
 
@@ -33,20 +40,20 @@ const ContactForm = () => {
       validationSchema={ContactsSchema}
     >
       <Form className={css.form}>
-        <label className={css.name} htmlFor={nameFieldId}>
+        <label className={css.name} htmlFor={nameField}>
           Name
         </label>
-        <Field className={css.field} type="text" name="name" id={nameFieldId} />
+        <Field className={css.field} type="text" name="name" id={nameField} />
         <ErrorMessage className={css.error} name="name" component="span" />
 
-        <label className={css.name} htmlFor={numberFieldId}>
+        <label className={css.name} htmlFor={numberField}>
           Number
         </label>
         <Field
           className={css.field}
           type="text"
           name="number"
-          id={numberFieldId}
+          id={numberField}
         />
         <ErrorMessage className={css.error} name="number" component="span" />
         <button className={css.btn} type="submit">

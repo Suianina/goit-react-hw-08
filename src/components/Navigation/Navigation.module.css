@@ -1,0 +1,17 @@
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.link{
+    color: rgb(130, 177, 238);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-size: 22px;
+    padding: 20px 30px;
+}
+.isActive{
+    color: #fef5f7;
+    background-color: rgb(130, 200, 238);
+}
