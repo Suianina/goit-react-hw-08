@@ -1,17 +1,52 @@
-.box{
+.box {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.link{
-    color: rgb(130, 177, 238);
+
+.link {
+    color: var(--nav-color);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-size: 22px;
-    padding: 20px 30px;
+    padding: var(--gap-lg) var(--gap-xl);
+    position: relative;
+    transition: var(--transition);
 }
-.isActive{
-    color: #fef5f7;
-    background-color: rgb(130, 200, 238);
+
+.link:hover {
+    color: var(--active-color);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5),
+    0 0 20px rgba(0, 123, 255, 0.3),
+    0 0 30px rgba(0, 123, 255, 0.1);
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold-color);
+    transition: width var(--transition);
+    box-shadow: var(--shadow-gold);
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.isActive {
+    color: var(--active-color);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5),
+    0 0 20px rgba(0, 123, 255, 0.3),
+    0 0 30px rgba(0, 123, 255, 0.1);
+}
+
+.isActive::after {
+    width: 100%;
+    background-color: var(--gold-color);
+    box-shadow: var(--shadow-gold);
 }

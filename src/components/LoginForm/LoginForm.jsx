@@ -23,7 +23,6 @@ const LoginForm = () => {
       .email("Password is incorrect"),
   });
 
-
   const handleSubmit = (values, actions) => {
     dispatch(login({
       email: values.email,
@@ -52,6 +51,7 @@ const LoginForm = () => {
           name="email"
           id={emailField}
           placeholder="example2091@gmail.com"
+          autoComplete="email"
         />
         <ErrorMessage className={css.error} name="email" component="span" />
 
@@ -62,7 +62,9 @@ const LoginForm = () => {
           className={css.field}
           type="password"
           name="password"
+          id={passwordField}
           placeholder="please enter password"
+          autoComplete="current-password"
         />
         <ErrorMessage className={css.error} name="password" component="span" />
 

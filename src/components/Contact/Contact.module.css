@@ -1,54 +1,174 @@
 .box {
-    width: calc((100% - 45px) / 3);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 15px 20px;
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .item {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-  
-  .icon {
-    fill: rgb(130, 198, 238);
-  }
-  
-  .input {
-    width: 120px;
-    border-radius: 5px;
-    border: 1px solid rgb(130, 180, 238);
-    overflow: hidden;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .btn {
-    width: 80px;
-    height: 30px;
-    background-color: transparent;
-    border: 1px solid grey;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .btn:hover {
-    background-color: rgb(130, 209, 238);
-  }
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--input-bg);
+  border-radius: 10px;
+  transition: var(--transition-long);
+  box-shadow: var(--shadow-sm);
+  padding: var(--gap-md) var(--gap-lg);
+  margin-bottom: var(--gap-md);
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-color);
+  box-shadow: var(--shadow-gold);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  align-items: flex-start;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+.icon {
+  fill: var(--gold-color);
+  width: 20px;
+  height: 20px;
+  transition: var(--transition);
+}
+
+.contactName {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.contactNumber {
+  font-size: 16px;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid var(--gold-color);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  transition: var(--transition);
+}
+
+.input:focus {
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: var(--gap-md);
+  align-self: center;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid var(--gold-color);
+  background-color: transparent;
+  color: var(--gold-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 80px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btnDelete {
+  border-color: var(--delete-color);
+  color: var(--delete-color);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.1);
+}
+
+.btnDelete:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.content {
+  background: var(--secondary-bg);
+  padding: var(--gap-xl);
+  border: 2px solid var(--input-bg);
+  border-radius: 10px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  width: 400px;
+  max-width: 90%;
+}
+
+.content:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-color);
+  box-shadow: var(--shadow-gold);
+}
+
+.modalTitle {
+  text-align: center;
+  font-size: 24px;
+  color: var(--gold-color);
+  margin-bottom: var(--gap-lg);
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.btnClose {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: var(--gap-md);
+  right: var(--gap-md);
+  font-size: 20px;
+  color: var(--gold-color);
+  transition: var(--transition);
+}
+
+.btnClose:hover {
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+
+
+
+
+
+

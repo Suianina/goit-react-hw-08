@@ -60,6 +60,7 @@ const RegistrationForm = () => {
           name="name" 
           id={nameField} 
           placeholder="Please enter your name"
+          autoComplete="name"
         />
         <ErrorMessage className={css.error} name="name" component="span" />
 
@@ -72,6 +73,7 @@ const RegistrationForm = () => {
           name="email"
           id={emailField}
           placeholder="example@gmail.com"
+          autoComplete="email"
         />
         <ErrorMessage className={css.error} name="email" component="span" />
 
@@ -84,6 +86,7 @@ const RegistrationForm = () => {
           name="password"
           id={passwordField}
           placeholder="Please enter the password"
+          autoComplete="new-password"
         />
         <ErrorMessage className={css.error} name="password" component="span" />
         <button className={css.btn} type="submit">

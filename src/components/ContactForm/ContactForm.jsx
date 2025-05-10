@@ -24,7 +24,7 @@ const ContactForm = () => {
     .then(() => {
       toast.success('Contact added successesfully', {
         duration: 3000,
-    });
+      });
     });
     actions.resetForm();
   };
@@ -43,7 +43,13 @@ const ContactForm = () => {
         <label className={css.name} htmlFor={nameField}>
           Name
         </label>
-        <Field className={css.field} type="text" name="name" id={nameField} />
+        <Field 
+          className={css.field} 
+          type="text" 
+          name="name" 
+          id={nameField}
+          autoComplete="name"
+        />
         <ErrorMessage className={css.error} name="name" component="span" />
 
         <label className={css.name} htmlFor={numberField}>
@@ -54,6 +60,7 @@ const ContactForm = () => {
           type="text"
           name="number"
           id={numberField}
+          autoComplete="tel"
         />
         <ErrorMessage className={css.error} name="number" component="span" />
         <button className={css.btn} type="submit">

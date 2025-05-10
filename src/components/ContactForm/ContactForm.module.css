@@ -1,36 +1,70 @@
-.form{
+.form {
   width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  border: 1px solid black;
-  padding: 30px 20px;
-  margin-bottom: 30px;
+  gap: var(--gap-md);
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--input-bg);
+  padding: var(--gap-xl) var(--gap-lg);
+  margin-bottom: var(--gap-xl);
   border-radius: 10px;
-}
-.field{
-  width: 100%;
-  height: 30px;
-  padding: 0 10px;
-  color: rgb(130, 182, 238);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
-.error{
-  align-self: flex-start;
-  color: red;
+.form:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-color);
+  box-shadow: var(--shadow-gold);
 }
-.btn{
-  width: 100px;
-  height: 30px;
-  background-color: transparent;
-  border: 1px solid grey;
+
+.label {
+  color: var(--gold-color);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.field {
+  width: 100%;
+  height: 35px;
+  padding: 0 var(--gap-md);
+  background-color: var(--input-bg);
+  border: 1px solid var(--gold-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  transition: var(--transition);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--gold-color);
+  box-shadow: var(--shadow-gold-hover),
+  0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.error {
+  align-self: flex-start;
+  color: var(--error-color);
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  background-color: var(--secondary-bg);
+  border: 2px solid var(--gold-color);
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  color: var(--gold-color);
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
   align-self: center;
+  cursor: pointer;
 }
 
 .btn:hover {
-  background-color: rgb(130, 180, 238);
+  background-color: #3a3a3a;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-gold);
 }

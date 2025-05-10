@@ -1,34 +1,61 @@
-.box{
+.box {
     display: flex;
     align-items: center;
 }
-.text{
+
+.text {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 22px;
-    padding: 20px;
+    padding: var(--gap-lg);
     text-transform: uppercase;
+    color: var(--gold-color);
 }
-.icon{
-    fill: rgb(130, 170, 238);
+
+.icon {
+    fill: var(--gold-color);
 }
-.btn{
+.btn {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: rgb(130, 186, 238);
+    color: var(--nav-color);
     background-color: transparent;
     border: none;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-size: 22px;
-    padding: 20px 30px;
-    transition: all 0.3s ease-in-out;
+    padding: var(--gap-lg) var(--gap-xl);
+    position: relative;
+    transition: var(--transition);
     cursor: pointer;
 }
-.link:hover {
-    color: #fef5f7;
-    background-color: rgb(130, 179, 238);
-  }
+
+.btn:hover {
+    color: var(--active-color);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5),
+    0 0 20px rgba(0, 123, 255, 0.3),
+    0 0 30px rgba(0, 123, 255, 0.1);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold-color);
+    transition: width var(--transition);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+
+
+

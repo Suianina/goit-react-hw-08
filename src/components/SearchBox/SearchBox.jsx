@@ -19,6 +19,7 @@ const SearchBox = () => {
         type="text"
         value={filterValue}
         onChange={selectNameFilter}
+        autoComplete="off"
       />
     </div>
   );

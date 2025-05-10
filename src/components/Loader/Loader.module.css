@@ -1,11 +1,11 @@
-.loader{
+.loader {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 100px;
   height: 100px;
-  margin: 30px 100px;
+  margin: var(--gap-xl) 100px;
 }
 
 .loader::before,
@@ -28,6 +28,6 @@
 }
 
 @keyframes rotate {
-  0% {  transform: rotate(0)}
+  0% { transform: rotate(0)}
   100% { transform: rotate(360deg)}
 }
