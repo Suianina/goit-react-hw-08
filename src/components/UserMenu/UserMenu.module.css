@@ -1,4 +1,4 @@
-.box {
+ .box {
     display: flex;
     align-items: center;
 }
@@ -55,7 +55,4 @@
 .btn:hover::after {
     width: 100%;
 }
-
-
-
 
