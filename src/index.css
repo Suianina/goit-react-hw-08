@@ -9,6 +9,8 @@
   --nav-color: #808080;
   --active-color: #007bff;
 
+  --label-color: var(--active-color);
+
   --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
   --shadow-gold: 0 0 10px rgba(255, 215, 0, 0.3);
