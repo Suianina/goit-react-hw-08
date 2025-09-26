@@ -20,61 +20,61 @@ const LoginForm = () => {
       .max(30, "Too long"),
     email: Yup.string()
       .required("Email is required")
-      .email("Password is incorrect"),
+      .email("Email is incorrect"),
   });
 
   const handleSubmit = (values, actions) => {
-    dispatch(login({
-      email: values.email,
-      password: values.password,
-    }));
+    dispatch(login({ email: values.email, password: values.password }));
     actions.resetForm();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <Formik
-      initialValues={{
-        email: "",
-        password: ""
-      }}
+      initialValues={{ email: "", password: "" }}
       onSubmit={handleSubmit}
       validationSchema={LoginSchema}
     >
       <Form className={css.form}>
-        <label className={css.name} htmlFor={emailField}>
-          Email
-        </label>
-        <Field
-          className={css.field}
-          type="text"
-          name="email"
-          id={emailField}
-          placeholder="example2091@gmail.com"
-          autoComplete="email"
-        />
-        <ErrorMessage className={css.error} name="email" component="span" />
-
-        <label className={css.name} htmlFor={passwordField}>
-          Password
-        </label>
-        <Field
-          className={css.field}
-          type="password"
-          name="password"
-          id={passwordField}
-          placeholder="please enter password"
-          autoComplete="current-password"
-        />
-        <ErrorMessage className={css.error} name="password" component="span" />
-
+        <div className={css.group}>
+          <label className={css.label} htmlFor={emailField}>
+            Email
+          </label>
+          <Field
+            className={css.field}
+            type="text"
+            name="email"
+            id={emailField}
+            placeholder="example2091@gmail.com"
+            autoComplete="email"
+          />
+          <ErrorMessage className={css.error} name="email" component="div" />
+        </div>
+        <div className={css.group}>
+          <label className={css.label} htmlFor={passwordField}>
+            Password
+          </label>
+          <Field
+            className={css.field}
+            type="password"
+            name="password"
+            id={passwordField}
+            placeholder="please enter password"
+            autoComplete="current-password"
+          />
+          <ErrorMessage className={css.error} name="password" component="div" />
+        </div>
         <button className={css.btn} type="submit">
           Log In
         </button>
-
-        {error && <p className={css.error}>Something went wrong {error}</p>}
+        <div className={css.errorGlobalSlot}>
+          <span className={css.errorGlobalText}>
+            {error ? `Something went wrong ${error}` : ""}
+          </span>
+        </div>
       </Form>
     </Formik>
   );
 };
+
 export default LoginForm;
