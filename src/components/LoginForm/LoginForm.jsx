@@ -48,8 +48,15 @@ const LoginForm = () => {
             placeholder="example2091@gmail.com"
             autoComplete="email"
           />
-          <ErrorMessage className={css.error} name="email" component="div" />
+          <div className={css.errorSlot} aria-live="polite">
+            <ErrorMessage
+              name="email"
+              component="span"
+              className={css.errorText}
+            />
+          </div>
         </div>
+
         <div className={css.group}>
           <label className={css.label} htmlFor={passwordField}>
             Password
@@ -62,12 +69,20 @@ const LoginForm = () => {
             placeholder="please enter password"
             autoComplete="current-password"
           />
-          <ErrorMessage className={css.error} name="password" component="div" />
+          <div className={css.errorSlot} aria-live="polite">
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.errorText}
+            />
+          </div>
         </div>
+
         <button className={css.btn} type="submit">
           Log In
         </button>
-        <div className={css.errorGlobalSlot}>
+
+        <div className={css.errorGlobalSlot} aria-live="polite">
           <span className={css.errorGlobalText}>
             {error ? `Something went wrong ${error}` : ""}
           </span>

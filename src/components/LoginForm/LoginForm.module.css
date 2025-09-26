@@ -53,19 +53,24 @@
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
 }
 
-.error {
+.errorSlot {
   height: 18px;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.errorText {
+  font-size: 12px;
   line-height: 18px;
   color: var(--error-color);
-  transition: opacity 0.2s ease;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.error:not(:empty) {
+.errorText:not(:empty) {
   opacity: 1;
 }
 
