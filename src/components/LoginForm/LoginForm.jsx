@@ -18,15 +18,19 @@ const LoginForm = () => {
       .required("Password is required")
       .min(8, "Password should contain 8 symbols")
       .max(30, "Too long"),
-    email: Yup.string()
-      .required("Email is required")
-      .email("Email is incorrect"),
+    email: Yup.string().required("Email is required").email("Invalid email"),
   });
 
-  const handleSubmit = (values, actions) => {
-    dispatch(login({ email: values.email, password: values.password }));
-    actions.resetForm();
-    navigate("/");
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(
+        login({ email: values.email, password: values.password })
+      ).unwrap();
+      actions.resetForm();
+      navigate("/");
+    } catch (e) {
+      actions.setSubmitting(false);
+    }
   };
 
   return (
@@ -35,59 +39,61 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       validationSchema={LoginSchema}
     >
-      <Form className={css.form}>
-        <div className={css.group}>
-          <label className={css.label} htmlFor={emailField}>
-            Email
-          </label>
-          <Field
-            className={css.field}
-            type="text"
-            name="email"
-            id={emailField}
-            placeholder="example2091@gmail.com"
-            autoComplete="email"
-          />
-          <div className={css.errorSlot} aria-live="polite">
-            <ErrorMessage
+      {({ isSubmitting }) => (
+        <Form className={css.form}>
+          <div className={css.group}>
+            <label className={css.label} htmlFor={emailField}>
+              Email
+            </label>
+            <Field
+              className={css.field}
+              type="text"
               name="email"
-              component="span"
-              className={css.errorText}
+              id={emailField}
+              placeholder="example2091@gmail.com"
+              autoComplete="email"
             />
+            <div className={css.errorSlot} aria-live="polite">
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={css.errorText}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className={css.group}>
-          <label className={css.label} htmlFor={passwordField}>
-            Password
-          </label>
-          <Field
-            className={css.field}
-            type="password"
-            name="password"
-            id={passwordField}
-            placeholder="please enter password"
-            autoComplete="current-password"
-          />
-          <div className={css.errorSlot} aria-live="polite">
-            <ErrorMessage
+          <div className={css.group}>
+            <label className={css.label} htmlFor={passwordField}>
+              Password
+            </label>
+            <Field
+              className={css.field}
+              type="password"
               name="password"
-              component="span"
-              className={css.errorText}
+              id={passwordField}
+              placeholder="please enter password"
+              autoComplete="current-password"
             />
+            <div className={css.errorSlot} aria-live="polite">
+              <ErrorMessage
+                name="password"
+                component="span"
+                className={css.errorText}
+              />
+            </div>
           </div>
-        </div>
 
-        <button className={css.btn} type="submit">
-          Log In
-        </button>
+          <button className={css.btn} type="submit" disabled={isSubmitting}>
+            Log In
+          </button>
 
-        <div className={css.errorGlobalSlot} aria-live="polite">
-          <span className={css.errorGlobalText}>
-            {error ? `Something went wrong ${error}` : ""}
-          </span>
-        </div>
-      </Form>
+          <div className={css.errorGlobalSlot} aria-live="polite">
+            <span className={css.errorGlobalText}>
+              {error ? `Something went wrong ${error}` : ""}
+            </span>
+          </div>
+        </Form>
+      )}
     </Formik>
   );
 };

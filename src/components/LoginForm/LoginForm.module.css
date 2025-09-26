@@ -100,6 +100,13 @@
   transform: scale(0.98);
 }
 
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .errorGlobalSlot {
   height: 22px;
   display: flex;
