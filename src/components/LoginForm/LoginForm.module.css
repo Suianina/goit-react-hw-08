@@ -25,7 +25,7 @@
 }
 
 .label {
-  color: #f8f8f8;
+  color: var(--gold-color);
   font-size: 16px;
   transition: var(--transition-long);
 }
